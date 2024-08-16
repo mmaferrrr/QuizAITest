@@ -4,6 +4,9 @@ import { Spinner, Center, VStack } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
 
+import { Stack, Select, FormControl, FormLabel } from "@chakra-ui/react";
+
+
 const  QuizGeneration = () => {
     
     //useState hooks keep track of information that can changes while app is running
@@ -130,59 +133,60 @@ const  QuizGeneration = () => {
     //"onchange" function: selected value is stored in state, updated whenever a new option is picked
     
     if (!quizStarted) {
-        return (
-            <div className="quiz-generator">
-                <h2>Quiz Generation Options</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="topic">Topic</label>
-                        <select id="topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
-                            <option value="">Select a topic</option>
-                            <option value="golang">golang</option>
-                            <option value="aws">aws</option>
-                            <option value="javascript">javascript</option>
-                            <option value="cicd">CI/CD</option>
-                            <option value="homegardens">home gardens</option>
-                            <option value="coffee">coffee</option>
-                            <option value="fingerfoods">finger foods</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="difficulty">Expertise</label>
-                        <select id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
-                            <option value="">Select expertise</option>
-                            <option value="novice">Novice</option>
-                            <option value="intermediate">Intermediate</option>
-                            <option value="expert">Expert</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="questionCount">Number of questions</label>
-                        <select id="questionCount" value={questionCount} onChange={(e) => setQuestionCount(e.target.value)}>
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="15">15</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="style">Style of questions</label>
-                        <select id="style" value={style} onChange={(e) => setStyle(e.target.value)}>
-                            <option value="normal">normal</option>
-                            <option value="masteroogway">Master Oogway</option>
-                            <option value="gangster">1940s Gangster</option>
-                            <option value="childlike">Like I'm an 8 year old</option>
-                            <option value="jedi">Jedi</option>
-                            <option value="jacksparrow">Captain Jack Sparrow</option>
-                            <option value="mcconaughey">Matthew McConaughey</option>
-                        </select>
-                    </div>
-                    <Button type="submit" isLoading={isLoading}>
-                        START QUIZ
-                    </Button>
-                </form>
-            </div>
-        );
-    }
+      return (
+          <div className="quiz-generator">
+              <h2>Quiz Generation Options</h2>
+              <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                      <label htmlFor="topic">Topic</label>
+                      <select id="topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
+                          <option value="">Select a topic</option>
+                          <option value="golang">golang</option>
+                          <option value="aws">aws</option>
+                          <option value="javascript">javascript</option>
+                          <option value="cicd">CI/CD</option>
+                          <option value="homegardens">home gardens</option>
+                          <option value="coffee">coffee</option>
+                          <option value="fingerfoods">finger foods</option>
+                      </select>
+                  </div>
+                  <div className="form-group">
+                      <label htmlFor="difficulty">Expertise</label>
+                      <select id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                          <option value="">Select expertise</option>
+                          <option value="novice">Novice</option>
+                          <option value="intermediate">Intermediate</option>
+                          <option value="expert">Expert</option>
+                      </select>
+                  </div>
+                  <div className="form-group">
+                      <label htmlFor="questionCount">Number of questions</label>
+                      <select id="questionCount" value={questionCount} onChange={(e) => setQuestionCount(e.target.value)}>
+                          <option value="5">5</option>
+                          <option value="10">10</option>
+                          <option value="15">15</option>
+                      </select>
+                  </div>
+                  <div className="form-group">
+                      <label htmlFor="style">Style of questions</label>
+                      <select id="style" value={style} onChange={(e) => setStyle(e.target.value)}>
+                          <option value="normal">normal</option>
+                          <option value="masteroogway">Master Oogway</option>
+                          <option value="gangster">1940s Gangster</option>
+                          <option value="childlike">Like I'm an 8 year old</option>
+                          <option value="jedi">Jedi</option>
+                          <option value="jacksparrow">Captain Jack Sparrow</option>
+                          <option value="mcconaughey">Matthew McConaughey</option>
+                      </select>
+                  </div>
+                  <Button type="submit" isLoading={isLoading}>
+                      START QUIZ
+                  </Button>
+              </form>
+          </div>
+      );
+  }
+   
 
     if (isLoading) {
       return (

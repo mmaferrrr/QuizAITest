@@ -12,7 +12,7 @@ function App() {
   return (
    
     <div className="App">
-      
+      <ChakraProvider>
       <Router>
         <Navbar />
         <Routes>
@@ -23,6 +23,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+      </ChakraProvider>
      
     </div>
    

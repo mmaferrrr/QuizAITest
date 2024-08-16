@@ -1,5 +1,5 @@
 import React from 'react';
-import './AccountPage.css';
+import './Acoount.css';
 import { HiMiniFire } from "react-icons/hi2";
 import { MdViewList } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
