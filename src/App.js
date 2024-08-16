@@ -6,10 +6,13 @@ import Footer from './components/Footer';
 import Account from './pages/Account';
 import QuizGeneration from './pages/QuizGeneration';
 import NotFound from './pages/NotFound';
+import { ChakraProvider } from '@chakra-ui/react'
 
 function App() {
   return (
+   
     <div className="App">
+      
       <Router>
         <Navbar />
         <Routes>
@@ -20,7 +23,9 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
+     
     </div>
+   
   );
 }
 

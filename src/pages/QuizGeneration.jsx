@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './QuizGeneration.css';
+import { Spinner, Center, VStack } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
 
 const  QuizGeneration = () => {
     
@@ -20,12 +23,14 @@ const  QuizGeneration = () => {
     const [correctAnswers, setCorrectAnswers] = useState(0);
     const [answerSubmitted, setAnswerSubmitted] = useState(false);
     const [quizCompleted, setQuizCompleted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     
     
     // sends request to server to generate quiz
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
 
 
         //fetch to send a request to server, server expects data about quiz
@@ -50,7 +55,10 @@ const  QuizGeneration = () => {
         catch (error) {
             console.error('Error:', error);
             alert(error.message);
-        }
+        } finally {
+          setIsLoading(false); //loading to false when request is complete
+      }
+
     };
 
 
@@ -58,6 +66,7 @@ const  QuizGeneration = () => {
     const handleAnswerSubmit = async (e) => {
         e.preventDefault();
         if (answerSubmitted) return; // Prevent multiple submissions
+        setIsLoading(true);
         try {
             const response = await fetch('http://localhost:3001/evaluate-answer', {
                 method: 'POST',
@@ -86,7 +95,9 @@ const  QuizGeneration = () => {
         } catch (error) {
             console.error('Error:', error);
             alert(error.message);
-        }
+        }finally {
+          setIsLoading(false); // Set loading to false when submission is complete
+      }
     };
 
 
@@ -165,10 +176,23 @@ const  QuizGeneration = () => {
                             <option value="mcconaughey">Matthew McConaughey</option>
                         </select>
                     </div>
-                    <button type="submit">START QUIZ</button>
+                    <Button type="submit" isLoading={isLoading}>
+                        START QUIZ
+                    </Button>
                 </form>
             </div>
         );
+    }
+
+    if (isLoading) {
+      return (
+        <Center h="100vh">
+          <VStack spacing={4}>
+            <Spinner size="xl" thickness="4px" speed="0.65s" color="blue.500"  width="250px" height="250px" />
+            <Text fontSize="50px">Loading...</Text>
+          </VStack>
+        </Center>
+      );
     }
 
     if (!quiz || quiz.length === 0) {
@@ -203,11 +227,15 @@ const  QuizGeneration = () => {
                         value={userAnswer}
                         onChange={(e) => setUserAnswer(e.target.value)}
                         placeholder="Type your answer here"
-                        disabled={answerSubmitted}
+                        disabled={answerSubmitted }
                     />
-                    <button type="submit" disabled={answerSubmitted}>
-                        SUBMIT ANSWER
-                    </button>
+                        <Button 
+                          type="submit" 
+                          isLoading={isLoading}
+                          disabled={answerSubmitted}
+                      >
+                          SUBMIT ANSWER
+                      </Button>
                 </form>
             </div>
             {evaluation && (
