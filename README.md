@@ -17,27 +17,18 @@ Welcome to **LRNR Quiz Page**, an interactive quiz application built using Node.
 
 To run this project locally, follow these steps:
 
-   
-git clone https://github.com/SoSaLay/Claude-Quiz-AI
-cd Claude-Quiz-AI
-Install Dependencies:
-Make sure you have Node.js and npm (Node Package Manager) installed. Then run:
+- **git clone:**:https://github.com/SoSaLay/Claude-Quiz-AI
 
+- **Locate Claude-Quiz-AI folder and open in code editor**
 
-npm install
-Install Chakra UI:
-Chakra UI is a component library that provides the building blocks needed to build your React application. Install it by running:
+- **Install Dependencies:**:Make sure you have Node.js and npm (Node Package Manager) installed. Then in terminal run: npm install
 
-
+- **Install Chakra UI:**Chakra UI is a component library that provides the building blocks needed to build your React application. Install it by running:
 npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
-Set Up the Environment:
-Configure your API keys and environment variables as needed. This might involve setting up a .env file to store your Claude API key.
 
-Run the Application:
-Start the development server by running:
+- **Set Up the Environment:**Configure your API keys and environment variables as needed. This might involve setting up a .env file to store your Claude API key.
 
-Use 'npm run dev' instead of 'npm start' to run the server and React app concurrently.
-The application will be available at http://localhost:3000.
+- **Run the Application:**Start the development server by using 'npm run dev' instead of 'npm start' to run the server and React app concurrently. The application will be available at http://localhost:3000.
 
 ## Usage
 
