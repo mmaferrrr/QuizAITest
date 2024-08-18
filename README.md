@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# LRNR Quiz Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **LRNR Quiz Page**, an interactive quiz application built using Node.js and React, designed to create customized quizzes based on user input. This application utilizes the Claude API to generate and evaluate quizzes, a unique and personalized learning experience.
 
-## Available Scripts
+![Quiz](./public/evaluation-exam-svgrepo-com.svg)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Customizable Quizzes**: Users can generate quizzes by selecting the topic, expertise level, number of questions, and question style.
+- **Interactive Quiz Experience**: After the quiz loads, users are prompted to answer each question in a text area.
+- **Real-time Feedback**: Upon submission, the AI evaluates the answer and informs the user whether their response was correct or incorrect.
+- **Single Submission Per Question**: Users can only submit their answer once per question.
+- **Score Tracking**: At the end of the quiz, users see how many questions they answered correctly out of the total.
+- **Retry Option**: Users have the opportunity to retake the quiz after completing it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run this project locally, follow these steps:
 
-### `npm test`
+   
+git clone https://github.com/SoSaLay/Claude-Quiz-AI
+cd Claude-Quiz-AI
+Install Dependencies:
+Make sure you have Node.js and npm (Node Package Manager) installed. Then run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+npm install
+Install Chakra UI:
+Chakra UI is a component library that provides the building blocks needed to build your React application. Install it by running:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm install @chakra-ui/react @emotion/react @emotion/styled framer-motion
+Set Up the Environment:
+Configure your API keys and environment variables as needed. This might involve setting up a .env file to store your Claude API key.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run the Application:
+Start the development server by running:
 
-### `npm run eject`
+Use 'npm run dev' instead of 'npm start' to run the server and React app concurrently.
+The application will be available at http://localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Generate a Quiz:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Upon visiting the LRNR Quiz Page, select your desired options for topic, expertise level, number of questions, and question style.
+Click the "Submit" button to generate the quiz.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+#### Answer Questions:
 
-## Learn More
+Once the quiz is generated, you'll be presented with a question and a text area where you can type your answer.
+After typing your answer, click "Submit" to get feedback on whether your answer was correct or incorrect.
+You can only submit an answer once per question.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### View Your Score:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+After completing all the questions, you'll see your score, showing how many answers you got correct out of the total number of questions.
+You'll also have the option to retake the quiz if you wish.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Expanding or Rebuilding the Project
+If you want to rebuild or expand on this application, you'll need to ensure you have the following installed:
 
-### Analyzing the Bundle Size
+Node.js: The JavaScript runtime for server-side development.
+React: The JavaScript library for building user interfaces.
+Chakra UI: The component library used to style and build the UI.
+NPM (Node Package Manager): To manage dependencies.
+Claude API or other AI APIs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -3,7 +3,6 @@ import './QuizGeneration.css';
 import { Spinner, Center, VStack } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
-
 import { Stack,  Box, Select, FormControl, FormLabel } from "@chakra-ui/react";
 
 
@@ -16,8 +15,8 @@ const  QuizGeneration = () => {
     //setQuestionCount is a function to change data if needed
 
     const [questionCount, setQuestionCount] = useState('5');
-    const [topic, setTopic] = useState('Golang');
-    const [difficulty, setDifficulty] = useState('novice');
+    const [topic, setTopic] = useState('');
+    const [difficulty, setDifficulty] = useState('');
     const [style, setStyle] = useState('normal');
     const [quiz, setQuiz] = useState(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -34,6 +33,21 @@ const  QuizGeneration = () => {
     // sends request to server to generate quiz
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+
+         // Validation: Check if topic and difficulty are selected
+    if (!topic) {
+      alert('Please select a topic');
+      return; 
+  }
+
+  if (!difficulty) {
+    alert('Please select an expertise level.');
+    return; 
+}
+
+
+
         setIsLoading(true);
 
 
@@ -142,17 +156,17 @@ const  QuizGeneration = () => {
               <VStack spacing={6} align="stretch" width="100%">
                 <FormControl width="100%">
                   <FormLabel htmlFor="topic">Topic</FormLabel>
-                  <Select
+                  <Select //creates dropdown menu to choose one option from a list
                     id="topic"
                     value={topic}
                     onChange={(e) => setTopic(e.target.value)}
                     variant="flushed"
-                    placeholder="Select a topic"
                     borderColor="gray.300"
                     width="100%"
                     size="lg"
                     mb={4}
                   >
+                    <option value=""></option>
                     <option value="golang">golang</option>
                     <option value="aws">aws</option>
                     <option value="javascript">javascript</option>
@@ -161,7 +175,8 @@ const  QuizGeneration = () => {
                     <option value="coffee">coffee</option>
                     <option value="fingerfoods">finger foods</option>
                   </Select>
-                </FormControl>
+                </FormControl> 
+              
     
                 <FormControl width="100%">
                   <FormLabel htmlFor="difficulty">Expertise</FormLabel>
@@ -170,12 +185,12 @@ const  QuizGeneration = () => {
                     value={difficulty}
                     onChange={(e) => setDifficulty(e.target.value)}
                     variant="flushed"
-                    placeholder="Select expertise"
                     borderColor="gray.300"
                     width="100%"
                     size="lg"
                     mb={4}
                   >
+                    <option value=""></option>
                     <option value="novice">Novice</option>
                     <option value="intermediate">Intermediate</option>
                     <option value="expert">Expert</option>
@@ -243,6 +258,7 @@ const  QuizGeneration = () => {
     }
    
 
+    //checks if the isLoading state is true. If true component will render full-screen loading indicator
     if (isLoading) {
       return (
         <Center h="100vh">
