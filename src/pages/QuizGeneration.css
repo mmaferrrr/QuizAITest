@@ -1,6 +1,6 @@
 
 .quiz-generator {
-    max-width: 600px;
+    max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -16,18 +16,18 @@ p {
     margin-bottom: 20px;
 }
 
-.form-group {
+/* .form-group {
     margin-bottom: 20px;
-}
+} */
 
-label {
+/* label {
     display: block;
     margin-bottom: 5px;
     color: #333;
-}
+} */
 
 
-
+/* 
 select {
     width: 100%;
     padding: 10px;
@@ -46,9 +46,9 @@ select {
     background-color: white;
     
     
-}
+} */
 
-button {
+/* button {
     background-color: #5cb85c;
     color: white;
     padding: 10px 20px;
@@ -57,7 +57,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     text-transform: uppercase;
-}
+} */
 
 button:hover {
     background-color: #4cae4c;

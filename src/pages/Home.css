@@ -72,7 +72,7 @@
   .card-text {
     font-size: 14px;
     color: #666;
-    margin-top: 5px;
+    margin-top: 6px;
   }
 
   @media screen and (min-width: 250px) and (max-width: 767px) {

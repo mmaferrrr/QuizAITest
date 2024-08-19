@@ -3,8 +3,8 @@ import './QuizGeneration.css';
 import { Spinner, Center, VStack } from '@chakra-ui/react';
 import { Button } from '@chakra-ui/react'
 import { Text } from '@chakra-ui/react'
+import { Stack,  Box, Select, FormControl, FormLabel } from "@chakra-ui/react";
 
-import { Stack, Select, FormControl, FormLabel } from "@chakra-ui/react";
 
 
 const  QuizGeneration = () => {
@@ -15,8 +15,8 @@ const  QuizGeneration = () => {
     //setQuestionCount is a function to change data if needed
 
     const [questionCount, setQuestionCount] = useState('5');
-    const [topic, setTopic] = useState('Golang');
-    const [difficulty, setDifficulty] = useState('novice');
+    const [topic, setTopic] = useState('');
+    const [difficulty, setDifficulty] = useState('');
     const [style, setStyle] = useState('normal');
     const [quiz, setQuiz] = useState(null);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -33,6 +33,21 @@ const  QuizGeneration = () => {
     // sends request to server to generate quiz
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+
+         // Validation: Check if topic and difficulty are selected
+    if (!topic) {
+      alert('Please select a topic');
+      return; 
+  }
+
+  if (!difficulty) {
+    alert('Please select an expertise level.');
+    return; 
+}
+
+
+
         setIsLoading(true);
 
 
@@ -134,60 +149,116 @@ const  QuizGeneration = () => {
     
     if (!quizStarted) {
       return (
-          <div className="quiz-generator">
-              <h2>Quiz Generation Options</h2>
-              <form onSubmit={handleSubmit}>
-                  <div className="form-group">
-                      <label htmlFor="topic">Topic</label>
-                      <select id="topic" value={topic} onChange={(e) => setTopic(e.target.value)}>
-                          <option value="">Select a topic</option>
-                          <option value="golang">golang</option>
-                          <option value="aws">aws</option>
-                          <option value="javascript">javascript</option>
-                          <option value="cicd">CI/CD</option>
-                          <option value="homegardens">home gardens</option>
-                          <option value="coffee">coffee</option>
-                          <option value="fingerfoods">finger foods</option>
-                      </select>
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="difficulty">Expertise</label>
-                      <select id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
-                          <option value="">Select expertise</option>
-                          <option value="novice">Novice</option>
-                          <option value="intermediate">Intermediate</option>
-                          <option value="expert">Expert</option>
-                      </select>
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="questionCount">Number of questions</label>
-                      <select id="questionCount" value={questionCount} onChange={(e) => setQuestionCount(e.target.value)}>
-                          <option value="5">5</option>
-                          <option value="10">10</option>
-                          <option value="15">15</option>
-                      </select>
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="style">Style of questions</label>
-                      <select id="style" value={style} onChange={(e) => setStyle(e.target.value)}>
-                          <option value="normal">normal</option>
-                          <option value="masteroogway">Master Oogway</option>
-                          <option value="gangster">1940s Gangster</option>
-                          <option value="childlike">Like I'm an 8 year old</option>
-                          <option value="jedi">Jedi</option>
-                          <option value="jacksparrow">Captain Jack Sparrow</option>
-                          <option value="mcconaughey">Matthew McConaughey</option>
-                      </select>
-                  </div>
-                  <Button type="submit" isLoading={isLoading}>
-                      START QUIZ
-                  </Button>
-              </form>
-          </div>
+        <Box className="quiz-generator" width="80%" maxWidth="100%" px={4}>
+          <VStack spacing={8} align="stretch" width="100%">
+            <h2>Quiz Generation Options</h2>
+            <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+              <VStack spacing={6} align="stretch" width="100%">
+                <FormControl width="100%">
+                  <FormLabel htmlFor="topic">Topic</FormLabel>
+                  <Select //creates dropdown menu to choose one option from a list
+                    id="topic"
+                    value={topic}
+                    onChange={(e) => setTopic(e.target.value)}
+                    variant="flushed"
+                    borderColor="gray.300"
+                    width="100%"
+                    size="lg"
+                    mb={4}
+                  >
+                    <option value=""></option>
+                    <option value="golang">golang</option>
+                    <option value="aws">aws</option>
+                    <option value="javascript">javascript</option>
+                    <option value="cicd">CI/CD</option>
+                    <option value="homegardens">home gardens</option>
+                    <option value="coffee">coffee</option>
+                    <option value="fingerfoods">finger foods</option>
+                  </Select>
+                </FormControl> 
+              
+    
+                <FormControl width="100%">
+                  <FormLabel htmlFor="difficulty">Expertise</FormLabel>
+                  <Select
+                    id="difficulty"
+                    value={difficulty}
+                    onChange={(e) => setDifficulty(e.target.value)}
+                    variant="flushed"
+                    borderColor="gray.300"
+                    width="100%"
+                    size="lg"
+                    mb={4}
+                  >
+                    <option value=""></option>
+                    <option value="novice">Novice</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                  </Select>
+                </FormControl>
+    
+                <FormControl width="100%">
+                  <FormLabel htmlFor="questionCount">Number of questions</FormLabel>
+                  <Select
+                    id="questionCount"
+                    value={questionCount}
+                    onChange={(e) => setQuestionCount(e.target.value)}
+                    variant="flushed"
+                    borderColor="gray.300"
+                    width="100%"
+                    size="lg"
+                    mb={4}
+                  >
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                  </Select>
+                </FormControl>
+    
+                <FormControl width="100%">
+                  <FormLabel htmlFor="style">Style of questions</FormLabel>
+                  <Select
+                    id="style"
+                    value={style}
+                    onChange={(e) => setStyle(e.target.value)}
+                    variant="flushed"
+                    placeholder="Select style"
+                    borderColor="gray.300"
+                    width="100%"
+                    size="lg"
+                    mb={4}
+                  >
+                    <option value="normal">normal</option>
+                    <option value="masteroogway">Master Oogway</option>
+                    <option value="gangster">1940s Gangster</option>
+                    <option value="childlike">Like I'm an 8 year old</option>
+                    <option value="jedi">Jedi</option>
+                    <option value="jacksparrow">Captain Jack Sparrow</option>
+                    <option value="mcconaughey">Matthew McConaughey</option>
+                  </Select>
+                </FormControl>
+    
+              <Button 
+              type="submit" 
+              isLoading={isLoading} 
+              width="auto"        // or use a specific value like "20%" or "100px"
+              mt={8}
+              colorScheme="green"
+              size="sm"
+              alignSelf="flex-start"   // aligns the button to the left in a flex container
+              textAlign="left"         // ensures text alignment inside the button is left
+            >
+              Submit
+            </Button>
+              </VStack>
+            </form>
+          </VStack>
+        </Box>
       );
-  }
+    }
    
 
+    //checks if the isLoading state is true. If true component will render full-screen loading indicator
     if (isLoading) {
       return (
         <Center h="100vh">
