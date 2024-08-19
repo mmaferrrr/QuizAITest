@@ -26,7 +26,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-credit">
-        <p>Made by Materialize</p>
+        <p>Made by  <span>Materialize</span> </p>
         </div>
     </footer>
   );
