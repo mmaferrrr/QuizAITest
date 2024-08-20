@@ -76,7 +76,7 @@ button:hover {
 
 .quiz-question .answer-section {
     margin-top: 100px; /* Add space above the answer section */
-    margin-bottom: 20px; /* Add space below the answer section */
+    margin-bottom: 150px; /* Add space below the answer section */
 }
 
 .quiz-question form {
@@ -116,6 +116,7 @@ button:hover {
 
 .evaluation {
     margin-top: 100px;
+    margin-bottom: 150px;
 
 }
 
