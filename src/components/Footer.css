@@ -18,7 +18,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
-  padding-bottom: 60px;
+    padding-bottom: 60px;
   }
 
   .footer-content {
@@ -63,16 +63,17 @@
 
   .footer-credit {
     width: 100%;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
-    text-align: center;
+    right: 0;
   }
 
   .footer-credit p {
     color: white;
     font-size: 15px;
-    padding:15px;
+    padding: 15px;
+    text-align: left;
     background-color: #1d87de97;
   }
 
