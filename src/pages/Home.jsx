@@ -3,6 +3,7 @@ import "../pages/Home.css";
 import { FaBoltLightning } from "react-icons/fa6";
 import { BsCashStack } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
       <h2 className="herotxt">
         Your guided path to programming enlightenment
       </h2>
-      <button className="hero-btn">Begin journey</button>
+      <Link to="/quizgeneration" className="hero-btn">Begin journey</Link>
       <div className="card-container">
         <div className="card">
         <FaBoltLightning className="icon"/>
