@@ -162,14 +162,3 @@ app.listen(PORT, () => {
 });
 
 
-
-// function parseQuestions(text) {
-//     const questionAnswerPairs = text.split('Question:').filter(qa => qa.trim());
-//     return questionAnswerPairs.map(qa => {
-//         const [question, answer] = qa.split('Answer:');
-//         return {
-//             question: question.trim(),
-//             answer: answer ? answer.trim() : 'No answer provided'
-//         };
-//     });
-// }
