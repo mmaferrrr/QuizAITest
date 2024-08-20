@@ -1,9 +1,8 @@
 import React from 'react';
-<<<<<<< HEAD
+
 import './Account.css';
-=======
-import './Acoount.css';
->>>>>>> main
+
+
 import { HiMiniFire } from "react-icons/hi2";
 import { MdViewList } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
