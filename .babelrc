@@ -1,0 +1,5 @@
+{
+    "presets": ["@babel/preset-env", "@babel/preset-react"]
+  }
+  
+  //Without these, Jest wouldn’t understand modern JS or JSX, causing tests to fail.
