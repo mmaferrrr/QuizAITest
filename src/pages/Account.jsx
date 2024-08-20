@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
+import './Account.css';
+=======
 import './Acoount.css';
+>>>>>>> main
 import { HiMiniFire } from "react-icons/hi2";
 import { MdViewList } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
@@ -7,7 +11,9 @@ import { FaUser } from "react-icons/fa";
 function AccountPage() {
   return (
     <main>
+    <div className='title'>
     <h1>Account</h1>
+    </div>
     <div className='account-container'>
       <div className="info-box">
         <HiMiniFire className='icon' />
